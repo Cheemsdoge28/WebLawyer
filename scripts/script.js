@@ -24,7 +24,7 @@ if (viewportHeight > screenHeight) {
 }
 
 document.querySelector("meta[name=viewport]").setAttribute("content", "width=" + viewportWidth + ", height=" + viewportHeight + ", initial-scale=1");
-const globalState = "dialogue"
+var globalState = "text"
 async function fadeIn(element) {
     await anime({
         targets: element,
@@ -103,7 +103,9 @@ class TextBox {
         this.element.appendChild(this.nextIcon);
         document.body.appendChild(this.element);
         document.getElementById('textBox' + this.instanceNumber).addEventListener('click', () => {
-            this.next();
+            if (globalState==="text") {
+                this.next();
+            }
         });
     }
 
@@ -297,6 +299,7 @@ class TextBox {
             } = queue[queuePos];
             switch (type) {
                 case 'text':
+                    globalState="text"
                     const {
                         text, animationBegin, animationEnd, audio, returnAudio, delay
                     } = eventData;
@@ -306,6 +309,7 @@ class TextBox {
                     await this.addText(text, animationBegin, animationEnd, audio, returnAudio, delay);
                     break;
                 case 'options':
+                    globalState="options"
                     const {
                         options, embed1, embed2, embed3
                     } = eventData;
