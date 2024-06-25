@@ -1,0 +1,178 @@
+:root {
+  --text-color: #9FFFFF;
+  --bg-color: #0F3F8F;
+  --border-color: #222;
+  --padding:  20px;
+  --max-width:  600px;
+  --font-family: Arial, sans-serif;
+}
+
+
+.common-styles {
+  position: fixed;
+  bottom:  1%;
+  width: calc(100% -  40px);
+  max-width: var(--max-width);
+  padding: var(--padding);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  opacity:  0.75;
+  border:  2px solid var(--border-color);
+  border-radius:  10px;
+  box-sizing: border-box;
+  z-index:  1;
+  text-align: center;
+}
+
+.text-display-box {
+  height:  25vh;
+  right: 7%;
+  z-index: 256;
+}
+
+.next-icon, .name-tag {
+  width:  15%;
+  max-width:  100px;
+  padding:  5px  8px;
+  z-index:  2;
+  bottom: 2%;
+  text-shadow:  1px  1px  2px rgba(0,  0,  0,  0.2); /* Added text shadow */
+}
+
+.next-icon {
+  right:  10%;
+}
+
+.unmute-button, option-button {
+  position: fixed;
+  bottom: 1%;
+  top: 1%;
+  left: 1%;
+  width: 15%;
+  max-width: calc(var(--max-width, 100px) - 40px);
+  height: 5%;
+  padding: var(--padding, 5px 8px);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  opacity: 0.75;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  box-sizing: border-box;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 100%;
+}
+
+.name-tag {
+  left:  5%;
+  width: min-content;
+}
+
+.sprite {
+  width:  90%;
+  height: auto;
+  position: absolute;
+  bottom:  24.7%;
+  left:  0;
+}
+
+.bg {
+  width:  100%;
+  height: auto;
+  position: absolute;
+  bottom:  25%;
+  left:  0;
+}
+.fg {
+  width:  100%;
+  height: auto;
+  position: absolute;
+  bottom:  25%;
+  left:  0;
+}
+
+.evidence-img {
+  position: fixed;/* Allow for precise positioning */
+  top: 1;
+  bottom: 0;
+  left: 1;
+  width: 0;   /* Start with zero width */
+  height: 0;  /* Start with zero height */
+}
+
+@keyframes growDisplay {
+  0% { 
+    width: 0; 
+    height: 0;
+  }
+  50% {
+    width: 5%;
+    height: auto;
+  }
+  
+  100% {
+    width: 10%;  /* Adjust to your desired final width */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+.evidence-img {
+  /* ... your other styles ... */
+  animation: growDisplay 5s ease-out; /* Change duration and easing as needed */
+  animation-fill-mode: forwards; /* Keep the final state after animation */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:root {
+ --text-color: #9FFFFF;
+ --bg-color: #0F3F8F;
+ --border-color: #222;
+ --padding: 20px;
+ --max-width: 600px;
+ --font-family: Arial, sans-serif;
+}
+
+.grid-container {
+    display: flex; /* Use flexbox to layout the buttons */
+    flex-direction: row; /* Ensure buttons are in a row */
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 30px; /* Increase the vertical gap between buttons */
+    width: 100vw; /* Ensure the container takes full viewport width */
+    height: 100vh; /* Ensure the container takes full viewport height */
+    position: absolute; /* Position the container absolutely */
+    bottom: 28%; /* Position at the bottom 28% of the viewport */
+    left: 0;
+    right: 0;
+    margin: auto; /* Center the container itself */
+}
+
+.option-button {
+    width: 70vw; /* Make the buttons 70% the width of the viewport */
+    height: 6%;
+    padding: var(--padding, 5px 8px);
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    opacity: 0.75;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-sizing: border-box;
+    z-index: 2;
+    text-align: center;
+    line-height: 100%;
+}
+
+.option-button.selected {
+    background-color: #555; /* Adjust the color for the selected state */
+}
